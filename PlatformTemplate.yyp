@@ -3,6 +3,7 @@
   "resourceVersion": "1.6",
   "name": "PlatformTemplate",
   "resources": [
+    {"id":{"name":"sPlayer","path":"sprites/sPlayer/sPlayer.yy",},"order":0,},
     {"id":{"name":"Room1","path":"rooms/Room1/Room1.yy",},"order":0,},
   ],
   "Options": [
