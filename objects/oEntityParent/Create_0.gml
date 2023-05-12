@@ -1,14 +1,9 @@
-// Inherit the parent event
-event_inherited();
-
-keyRight = -1;
-keyLeft = -1;
-keyJump = -1;
-
-isMoving = 0;
-
+hsp = 0;
+vsp = 0;
+dir = 0;
 hspMax = 8;
 vspMax = 12;
+gravForce = 0.4;
 
 spd = 0;
 spdMax = 2.5;
@@ -17,11 +12,13 @@ deccel = .22;
 
 jumpCountMax = 2;
 jumpCount = jumpCountMax;
-jumpBufferMax = 12;
+jumpBufferMax = 10;
 jumpBuffer = jumpBufferMax;
-jumpHeight = 7;
-
 postJumpBufferMax = 30;
 postJumpBuffer = postJumpBufferMax;
+jumpHeight = 8;
 
-state = PlayerStateIdle;
+state = undefined;
+
+onGround = false;
+canJump = false;

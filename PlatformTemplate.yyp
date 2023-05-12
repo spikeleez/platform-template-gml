@@ -3,10 +3,16 @@
   "resourceVersion": "1.6",
   "name": "PlatformTemplate",
   "resources": [
-    {"id":{"name":"oPlayer","path":"objects/oPlayer/oPlayer.yy",},"order":0,},
+    {"id":{"name":"sBackground","path":"sprites/sBackground/sBackground.yy",},"order":2,},
+    {"id":{"name":"oEntityParent","path":"objects/oEntityParent/oEntityParent.yy",},"order":0,},
+    {"id":{"name":"oPlayer","path":"objects/oPlayer/oPlayer.yy",},"order":1,},
+    {"id":{"name":"PlayerFunctions","path":"scripts/PlayerFunctions/PlayerFunctions.yy",},"order":3,},
     {"id":{"name":"sPlayer","path":"sprites/sPlayer/sPlayer.yy",},"order":0,},
+    {"id":{"name":"HelperFunctions","path":"scripts/HelperFunctions/HelperFunctions.yy",},"order":0,},
     {"id":{"name":"sWall","path":"sprites/sWall/sWall.yy",},"order":1,},
-    {"id":{"name":"oWall","path":"objects/oWall/oWall.yy",},"order":1,},
+    {"id":{"name":"PlayerStates","path":"scripts/PlayerStates/PlayerStates.yy",},"order":2,},
+    {"id":{"name":"EntityFunctions","path":"scripts/EntityFunctions/EntityFunctions.yy",},"order":1,},
+    {"id":{"name":"oWall","path":"objects/oWall/oWall.yy",},"order":2,},
     {"id":{"name":"Room1","path":"rooms/Room1/Room1.yy",},"order":0,},
   ],
   "Options": [
