@@ -7,13 +7,13 @@ function PlayerStateIdle()
 	if (isMoving) SwitchState(PlayerStateWalk, true);
 	else hsp = 0;
 	
-	if (keyJump && jumpCount > 0 && jumpBuffer > 0)
+	if (keyJump && jumpCount > 0)
 	{
 		PlayerJump();
 		SwitchState(PlayerStateJump, true);
 	}
 	
-	if (!onGround) 
+	if (IsInAir() && vsp > 0) 
 	{
 		SwitchState(PlayerStateFall, true);
 	}
@@ -35,13 +35,13 @@ function PlayerStateWalk()
 		if (abs(hsp) < 0.3) SwitchState(PlayerStateIdle, true);
 	}
 	
-	if (keyJump && jumpCount > 0 && jumpBuffer > 0)
+	if (keyJump && jumpCount > 0)
 	{
 		PlayerJump();
 		SwitchState(PlayerStateJump, true);
 	}
 	
-	if (!onGround) 
+	if (IsInAir() && vsp > 0) 
 	{
 		SwitchState(PlayerStateFall, true);
 	}
@@ -58,16 +58,15 @@ function PlayerStateJump()
 	PlayerUpdateMovement();
 	
 	// State Transition
-	if (jumpCount > 0 && keyJump)
+	if (keyJump && doubleJumpBuffer > 0 && jumpCount > 0 && doubleJumpDelay <= 0)
 	{
 		PlayerJump();
 		SwitchState(PlayerStateDoubleJump, true);
 	}
 	
-	if (vsp > 0)
-	{
-		SwitchState(PlayerStateFall, true);
-	}
+	if (keyJump) groundJumpBuffer = groundJumpBufferMax;
+	
+	if (vsp > 0) SwitchState(PlayerStateFall, true);
 	
 	// State Debug
 	show_debug_message("Jump State");
@@ -81,70 +80,45 @@ function PlayerStateDoubleJump()
 	PlayerUpdateMovement();
 	
 	// State Transition
-	if (vsp > 0) 
-	{
-		SwitchState(PlayerStateFall, true);
-	}
+	if (vsp > 0) SwitchState(PlayerStateFall, true);
 	
 	// State Debug
 	show_debug_message("Double Jump State");
 }
 
-function PlayerStateFall() 
+function PlayerStateFall()
 {
 	// State Update
 	sprite_index = sPlayer;
 	
 	PlayerUpdateMovement();
-	if (jumpCount >= jumpCountMax) jumpBuffer--;
-	else postJumpBuffer--;
+	
+	if (keyJump) groundJumpBuffer = groundJumpBufferMax;
 	
 	// State Transition
-	if (jumpBuffer > 0 && keyJump && jumpCount > 0 && postJumpBuffer > 0)
+	if (OnGround()) SwitchState(PlayerStateIdle, true);
+	else
 	{
-		PlayerJump();
-		SwitchState(PlayerStateJump, true);
-	}
-	
-	if (onGround)
-	{
-		jumpBuffer = jumpBufferMax;
-		postJumpBuffer = postJumpBufferMax;
-		SwitchState(PlayerStateIdle, true);
+		if (jumpTimes <= 0)
+		{
+			 coyoteTimer--;
+			 if (keyJump && coyoteTimer > 0 && jumpCount > 0)
+			 {
+				 PlayerJump();
+				SwitchState(PlayerStateJump, true); 
+			 }
+		}
+		else
+		{
+			doubleJumpBuffer--;
+			if (keyJump && doubleJumpBuffer > 0 && jumpCount > 0)
+			{
+				PlayerJump();
+				SwitchState(PlayerStateDoubleJump, true);
+			}
+		}
 	}
 	
 	// State Debug
 	show_debug_message("Fall State");
 }
-
-function PlayerStateWallSlide() {}
-
-function PlayerStateDash() {}
-
-function PlayerStateHurt() {}
-
-function PlayerStateDie() {}
-
-function PlayerStateFreeze() {}
-
-function PlayerStateWin() {}
-
-function PlayerStateKnockback() {}
-
-function PlayerStateAttackA() {}
-
-function PlayerStateAttackB() {}
-
-function PlayerStateAttackC() {}
-
-function PlayerStateAttackD() {}
-
-function PlayerStateAttackE() {}
-
-function PlayerStateDialog() {}
-
-function PlayerStateFlying() {}
-
-function PlayerStateFloating() {}
-
-function PlayerStateNone() {}

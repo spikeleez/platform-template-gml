@@ -9,8 +9,12 @@ function GetPlayerInputs()
 function PlayerJump()
 {
 	vsp = 0;
-	jumpCount--;
 	vsp -= jumpHeight;
+
+	jumpTimes += 1;
+	jumpCount--;
+	
+	groundJumpBuffer = 0;
 }
 
 function PlayerUpdateMovement()

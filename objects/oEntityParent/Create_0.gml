@@ -10,15 +10,19 @@ spdMax = 2.5;
 accel = .38;
 deccel = .22;
 
+// Jump
+jumpTimes = 0;
 jumpCountMax = 2;
 jumpCount = jumpCountMax;
-jumpBufferMax = 10;
-jumpBuffer = jumpBufferMax;
-postJumpBufferMax = 30;
-postJumpBuffer = postJumpBufferMax;
+coyoteTimerMax = 10;
+coyoteTimer = coyoteTimerMax;
+doubleJumpBufferMax = 30;
+doubleJumpBuffer = doubleJumpBufferMax;
 jumpHeight = 8;
+cornerSize = 8;
+groundJumpBufferMax = 30;
+groundJumpBuffer = 0;
+doubleJumpDelayMax = 10;
+doubleJumpDelay = 0;
 
 state = undefined;
-
-onGround = false;
-canJump = false;

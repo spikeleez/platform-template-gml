@@ -1,30 +1,100 @@
 function MakeCollision()
 {
+	#region Horizontal Collision
 	var _col = instance_place(x + hsp, y, oWall);
 	
 	if (_col)
 	{
+		// Check Right Collision
 		if (hsp > 0) x = _col.bbox_left + (x - bbox_right);
+		
+		// Check Left Collision
 		if (hsp < 0) x = _col.bbox_right + (x - bbox_left);
+		
 		hsp = 0;
 	}
 	x += hsp;
+	#endregion
 	
+	#region Vertical Collision
 	_col = instance_place(x, y + vsp, oWall);
 	
 	if (_col)
 	{
-		if (vsp > 0) y = _col.bbox_top + (y - bbox_bottom);
-		if (vsp < 0) y = _col.bbox_bottom + (y - bbox_top);
-		vsp = 0;
+		// Check Bottom Collision
+		if (vsp > 0)
+		{
+			y = _col.bbox_top + (y - bbox_bottom);
+			vsp = 0;
+		}
 		
-		jumpCount = jumpCountMax;
-		jumpBuffer = jumpBufferMax;
+		// Check Top Collision
+		if (vsp < 0)
+		{
+			var _stopCollision = true;
+			
+			// Check corner - left
+			for (var i = 0; i < cornerSize; i++)
+			{
+				var _free = !place_meeting(x - i, y + vsp, oWall);
+				if (_free)
+				{
+					x -= i;
+					_stopCollision = false;
+					break;
+				}
+			}
+			
+			// Check corner - right
+			for (var i = 0; i < cornerSize; i++)
+			{
+				var _free = !place_meeting(x + i, y + vsp, oWall);
+				if (_free)
+				{
+					x += i;
+					_stopCollision = false;
+					break;
+				}
+			}
+			
+			if (_stopCollision)
+			{
+				y = _col.bbox_bottom + (y - bbox_top);	
+				vsp = 0
+			}
+		}
 	}
 	y += vsp;
+	#endregion
 }
 
 function UpdateFace()
 {
 	if (hsp != 0) image_xscale = sign(hsp);
+}
+
+function OnGround()
+{
+	if (place_meeting(x, y+1, oWall))
+	{
+		if (!keyJump)
+		{
+			jumpTimes = 0;
+			jumpCount = jumpCountMax;
+			coyoteTimer = coyoteTimerMax;
+			doubleJumpBuffer = doubleJumpBufferMax;
+			doubleJumpDelay = doubleJumpDelayMax;
+		}
+		
+		return true;
+	}
+	else
+	{
+		return false;
+	}
+}
+
+function IsInAir()
+{
+	if (!OnGround()) return true; else return false;
 }
