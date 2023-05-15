@@ -1,4 +1,4 @@
-# platform-template-gml
+# Platform Template (Gamemaker Studio)
 A simple platform template for Gamemaker Studio 2 Developers
 
 Update - 15/05/2023
