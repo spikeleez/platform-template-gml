@@ -9,7 +9,7 @@ A simple platform template for Gamemaker Studio 2 Developers
 + Smooth Entities Reactions (Gummy, Hit, Knockback)
 + Particle System
 + Simple Template Character (Player Sprite)
-+ Collision Pixel Perfect
++ Pixel Perfect Collision
 + Acceleration and Deceleration
 
 # Patch Notes
