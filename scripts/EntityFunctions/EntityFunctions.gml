@@ -77,7 +77,7 @@ function OnGround()
 {
 	if (place_meeting(x, y+1, oWall))
 	{
-		if (!keyJump)
+		if (!keyJumpPressed)
 		{
 			jumpTimes = 0;
 			jumpCount = jumpCountMax;
@@ -97,4 +97,17 @@ function OnGround()
 function IsInAir()
 {
 	if (!OnGround()) return true; else return false;
+}
+
+function CanGummy()
+{
+	xscale = lerp(xscale, 1, 0.2);
+	yscale = lerp(yscale, 1, 0.2);
+}
+
+/// @function Gummy(xscale, yscale);
+function Gummy(_xscale, _yscale)
+{
+	xscale = _xscale;
+	yscale = _yscale;
 }

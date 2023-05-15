@@ -1,14 +1,11 @@
 // Inherit the parent event
 event_inherited();
 
-keyRight =						-1;
-keyLeft =						-1;
-keyJump =						-1;
-isMoving =						0;
+GetPlayerInputs();
 
-spdMax =						3;
-accel =							0.38;
-deccel =						0.22;
+spdMax =						2.5;
+accel =							0.3;
+deccel =						0.2;
 
 // Jump Properties
 jumpCountMax =					2;
@@ -19,5 +16,6 @@ cornerSize =					8;
 groundJumpBufferMax =			30;
 groundJumpBuffer =				0;
 doubleJumpDelayMax =			12;
+jumpHoldFramesMax =				10;
 
 state = PlayerStateIdle;
