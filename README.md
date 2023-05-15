@@ -13,7 +13,7 @@ Update - 15/05/2023
 + Entity System
 + Smooth Platform Movement
 + Full Jump System (Jump High and Low, Wall Jumps, Double Jumps, Corner Correction, Coyote Time, Double Jump Buffer, etc...)
-+ Smooth entities reactions (Gummy, Hit, Knockback)
++ Smooth Entities Reactions (Gummy, Hit, Knockback)
 + Particle System
 + Simple Template Character (Player Sprite)
 + Collision Pixel Perfect
