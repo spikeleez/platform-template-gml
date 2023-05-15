@@ -7,3 +7,4 @@ Update - 15/05/2023
 + Improved jumps (High jumps and Low jumps)
 + Fixing the bug where when you collide with the wall the character is flickering
 + Fix another bugs
+- test
