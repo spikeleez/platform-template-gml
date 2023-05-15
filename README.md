@@ -1,13 +1,6 @@
 # Platform Template (Gamemaker Studio)
 A simple platform template for Gamemaker Studio 2 Developers
 
-Update - 15/05/2023
-
-+ Gummy Effect (Squish)
-+ Improved jumps (High jumps and Low jumps)
-+ Fixing the bug where when you collide with the wall the character is flickering
-+ Fix another bugs
-
 # What's inside the template
 
 + Entity System
@@ -18,3 +11,12 @@ Update - 15/05/2023
 + Simple Template Character (Player Sprite)
 + Collision Pixel Perfect
 + Acceleration and Deceleration
+
+# Patch Notes
+
+Update - 15/05/2023
+
++ Gummy Effect (Squish)
++ Improved jumps (High jumps and Low jumps)
++ Fixing the bug where when you collide with the wall the character is flickering
++ Fix another bugs
