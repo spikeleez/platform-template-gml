@@ -39,7 +39,7 @@ INPUT_DEFAULT_PROFILES = {
         axis_move_right:				[input_binding_gamepad_axis(gp_axislh, false), input_binding_gamepad_button(gp_padr)],
         
 		// Actions
-		action_jump:					[input_binding_gamepad_button(gp_face1), input_binding_gamepad_axis(gp_axislv)],
+		action_jump:					[input_binding_gamepad_button(gp_face1), input_binding_gamepad_axis(gp_axislv, true)],
 		action_aim_up:					input_binding_gamepad_axis(gp_axisrv, true),
         action_aim_down:				input_binding_gamepad_axis(gp_axisrv, false),
         action_aim_left:				input_binding_gamepad_axis(gp_axisrh, true),

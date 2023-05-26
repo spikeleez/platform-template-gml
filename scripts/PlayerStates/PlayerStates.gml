@@ -19,7 +19,7 @@ function PlayerStateIdle()
 	}
 	
 	// State Debug
-	show_debug_message("Idle State");
+	//show_debug_message("Idle State");
 }
 
 function PlayerStateWalk()
@@ -44,7 +44,7 @@ function PlayerStateWalk()
 	if (IsInAir() && vsp > 0) SwitchState(PlayerStateFall, true);
 	
 	// State Debug
-	show_debug_message("Walk State");
+	//show_debug_message("Walk State");
 }
 
 function PlayerStateJump() 
@@ -68,7 +68,7 @@ function PlayerStateJump()
 	if (vsp > 0) SwitchState(PlayerStateFall, true);
 	
 	// State Debug
-	show_debug_message("Jump State");
+	//show_debug_message("Jump State");
 }
 
 function PlayerStateDoubleJump() 
@@ -82,7 +82,7 @@ function PlayerStateDoubleJump()
 	if (vsp > 0) SwitchState(PlayerStateFall, true);
 	
 	// State Debug
-	show_debug_message("Double Jump State");
+	//show_debug_message("Double Jump State");
 }
 
 function PlayerStateFall()
@@ -117,7 +117,6 @@ function PlayerStateFall()
 			}
 		}
 	}
-	
 	// State Debug
-	show_debug_message("Fall State");
+	//show_debug_message("Fall State");
 }

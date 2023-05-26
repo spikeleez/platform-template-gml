@@ -25,8 +25,6 @@ function PlayerUpdateMovement()
 	{
 		dir = point_direction(0,0,_keyRight-_keyLeft,0);
 		spd = Approach(spd, spdMax, accel);
-		
-		gamepad_set_color(4, c_red);
 	}
 	else
 	{
