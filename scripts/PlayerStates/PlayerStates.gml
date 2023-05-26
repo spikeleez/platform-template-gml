@@ -7,7 +7,7 @@ function PlayerStateIdle()
 	if (KeyMovePressed()) SwitchState(PlayerStateWalk, true);
 	else hsp = 0;
 	
-	if (keyJumpPressed && jumpCount > 0)
+	if (input_check_pressed("action_jump") && jumpCount > 0)
 	{
 		PlayerJump();
 		SwitchState(PlayerStateJump, true);
@@ -35,7 +35,7 @@ function PlayerStateWalk()
 		if (abs(hsp) < 0.3) SwitchState(PlayerStateIdle, true);
 	}
 	
-	if (keyJumpPressed && jumpCount > 0)
+	if (input_check_pressed("action_jump") && jumpCount > 0)
 	{
 		PlayerJump();
 		SwitchState(PlayerStateJump, true);
@@ -54,12 +54,12 @@ function PlayerStateJump()
 	
 	PlayerUpdateMovement();
 	
-	if (!keyJumpHold && vsp < 0) vsp = max(vsp, -jumpHeight * 0.5);
+	if (!input_check("action_jump") && vsp < 0) vsp = max(vsp, -jumpHeight * 0.5);
 	
-	if (keyJumpPressed) groundJumpBuffer = groundJumpBufferMax;
+	if (input_check_pressed("action_jump")) groundJumpBuffer = groundJumpBufferMax;
 	
 	// State Transition
-	if (keyJumpPressed && doubleJumpBuffer > 0 && jumpCount > 0 && doubleJumpDelay <= 0)
+	if (input_check_pressed("action_jump") && doubleJumpBuffer > 0 && jumpCount > 0 && doubleJumpDelay <= 0)
 	{
 		PlayerJump();
 		SwitchState(PlayerStateDoubleJump, true);
@@ -92,7 +92,7 @@ function PlayerStateFall()
 	
 	PlayerUpdateMovement();
 	
-	if (keyJumpPressed) groundJumpBuffer = groundJumpBufferMax;
+	if (input_check_pressed("action_jump")) groundJumpBuffer = groundJumpBufferMax;
 	
 	// State Transition
 	if (OnGround()) SwitchState(PlayerStateIdle, true);
@@ -101,7 +101,7 @@ function PlayerStateFall()
 		if (jumpTimes <= 0)
 		{
 			 coyoteTimer--;
-			 if (keyJumpPressed && coyoteTimer > 0 && jumpCount > 0)
+			 if (input_check_pressed("action_jump") && coyoteTimer > 0 && jumpCount > 0)
 			 {
 				 PlayerJump();
 				SwitchState(PlayerStateJump, true); 
@@ -110,7 +110,7 @@ function PlayerStateFall()
 		else
 		{
 			doubleJumpBuffer--;
-			if (keyJumpPressed && doubleJumpBuffer > 0 && jumpCount > 0)
+			if (input_check_pressed("action_jump") && doubleJumpBuffer > 0 && jumpCount > 0)
 			{
 				PlayerJump();
 				SwitchState(PlayerStateDoubleJump, true);

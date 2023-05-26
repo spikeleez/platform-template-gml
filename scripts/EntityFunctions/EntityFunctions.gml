@@ -77,7 +77,7 @@ function OnGround()
 {
 	if (place_meeting(x, y+1, oWall))
 	{
-		if (!keyJumpPressed)
+		if (!input_check_pressed("action_jump"))
 		{
 			jumpTimes = 0;
 			jumpCount = jumpCountMax;

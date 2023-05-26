@@ -1,8 +1,6 @@
 // Inherit the parent event
 event_inherited();
 
-GetPlayerInputs();
-
 spdMax =						2.5;
 accel =							0.3;
 deccel =						0.2;

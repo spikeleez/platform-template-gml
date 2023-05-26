@@ -13,52 +13,44 @@ INPUT_DEFAULT_PROFILES = {
     
     keyboard_and_mouse:
     {
-		#region Axis
-		// Movement - Axis
+		// Axis
         axis_move_up:					[input_binding_key(vk_up),    input_binding_key("W")],
         axis_move_down:					[input_binding_key(vk_down),  input_binding_key("S")],
         axis_move_left:					[input_binding_key(vk_left),  input_binding_key("A")],
         axis_move_right:				[input_binding_key(vk_right), input_binding_key("D")],
-		#endregion
 		
-		#region Actions
 		// Actions
 		action_jump:					[input_binding_key(vk_up), input_binding_key("W"), input_binding_key(vk_space)],
-		action_jump_hold:				[input_binding_key(vk_up), input_binding_key("W"), input_binding_key(vk_space)],
 		action_shoot:					input_binding_mouse_button(mb_left),
 		
-		// UI
+		// Others
         action_accept:					[input_binding_key(vk_space), input_binding_key(vk_enter)],
         action_cancel:					input_binding_key(vk_backspace),
         action_special:					input_binding_key(vk_shift),
         action_pause:					input_binding_key(vk_escape),
-		#endregion
     },
     
     gamepad:
     {
-		#region Axis
-		// Movement - Axis
+		// Axis
         axis_move_up:					[input_binding_gamepad_axis(gp_axislv, true),  input_binding_gamepad_button(gp_padu)],
         axis_move_down:					[input_binding_gamepad_axis(gp_axislv, false), input_binding_gamepad_button(gp_padd)],
         axis_move_left:					[input_binding_gamepad_axis(gp_axislh, true),  input_binding_gamepad_button(gp_padl)],
         axis_move_right:				[input_binding_gamepad_axis(gp_axislh, false), input_binding_gamepad_button(gp_padr)],
-		#endregion
         
-		#region Actions
 		// Actions
+		action_jump:					[input_binding_gamepad_button(gp_face1), input_binding_gamepad_axis(gp_axislv)],
 		action_aim_up:					input_binding_gamepad_axis(gp_axisrv, true),
         action_aim_down:				input_binding_gamepad_axis(gp_axisrv, false),
         action_aim_left:				input_binding_gamepad_axis(gp_axisrh, true),
         action_aim_right:				input_binding_gamepad_axis(gp_axisrh, false),
         action_shoot:					[input_binding_gamepad_button(gp_shoulderlb), input_binding_gamepad_button(gp_shoulderrb)],
 		
-		// UI
+		// Others
         action_accept:					[input_binding_gamepad_button(gp_face1), input_binding_gamepad_button(gp_face3)],
         action_cancel:					input_binding_gamepad_button(gp_face2),
         action_special:					input_binding_gamepad_button(gp_face4),
 		action_pause:					input_binding_gamepad_button(gp_start),
-		#endregion
     },
     
 };

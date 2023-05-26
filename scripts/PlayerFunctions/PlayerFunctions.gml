@@ -1,12 +1,3 @@
-function GetPlayerInputs()
-{
-	// All Player Inputs Here!
-	keyRight = keyboard_check(ord("D")) or keyboard_check(vk_right);
-	keyLeft = keyboard_check(ord("A")) or keyboard_check(vk_left);
-	keyJumpPressed = keyboard_check_pressed(ord("W")) or keyboard_check_pressed(vk_space);
-	keyJumpHold = keyboard_check(ord("W")) or keyboard_check(vk_space);
-}
-
 function PlayerJump()
 {
 	vsp = 0;
@@ -22,16 +13,17 @@ function PlayerJump()
 
 function KeyMovePressed()
 {
-	return ((keyRight xor keyLeft) != 0)
+	return ((input_check("axis_move_right") xor input_check("axis_move_left")) != 0)
 }
 
 function PlayerUpdateMovement()
 {
-	var _moveHor = (keyRight - keyLeft) * spdMax;
+	var _keyRight = input_check("axis_move_right");
+	var _keyLeft = input_check("axis_move_left");
 	
 	if (KeyMovePressed())
 	{
-		dir = point_direction(0,0,keyRight-keyLeft,0);
+		dir = point_direction(0,0,_keyRight-_keyLeft,0);
 		spd = Approach(spd, spdMax, accel);
 	}
 	else
