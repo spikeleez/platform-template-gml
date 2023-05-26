@@ -13,41 +13,52 @@ INPUT_DEFAULT_PROFILES = {
     
     keyboard_and_mouse:
     {
-        up:    [input_binding_key(vk_up),    input_binding_key("W")],
-        down:  [input_binding_key(vk_down),  input_binding_key("S")],
-        left:  [input_binding_key(vk_left),  input_binding_key("A")],
-        right: [input_binding_key(vk_right), input_binding_key("D")],
-        
-        accept:  input_binding_key(vk_space),
-        cancel:  input_binding_key(vk_backspace),
-        action:  input_binding_key(vk_enter),
-        special: input_binding_key(vk_shift),
-        
-        //No aiming verbs since we use the mouse for that (see below for aiming verb examples)
-        shoot: input_binding_mouse_button(mb_left),
-        
-        pause: input_binding_key(vk_escape),
+		#region Axis
+		// Movement - Axis
+        axis_move_up:					[input_binding_key(vk_up),    input_binding_key("W")],
+        axis_move_down:					[input_binding_key(vk_down),  input_binding_key("S")],
+        axis_move_left:					[input_binding_key(vk_left),  input_binding_key("A")],
+        axis_move_right:				[input_binding_key(vk_right), input_binding_key("D")],
+		#endregion
+		
+		#region Actions
+		// Actions
+		action_jump:					[input_binding_key(vk_up), input_binding_key("W"), input_binding_key(vk_space)],
+		action_jump_hold:				[input_binding_key(vk_up), input_binding_key("W"), input_binding_key(vk_space)],
+		action_shoot:					input_binding_mouse_button(mb_left),
+		
+		// UI
+        action_accept:					[input_binding_key(vk_space), input_binding_key(vk_enter)],
+        action_cancel:					input_binding_key(vk_backspace),
+        action_special:					input_binding_key(vk_shift),
+        action_pause:					input_binding_key(vk_escape),
+		#endregion
     },
     
     gamepad:
     {
-        up:    [input_binding_gamepad_axis(gp_axislv, true),  input_binding_gamepad_button(gp_padu)],
-        down:  [input_binding_gamepad_axis(gp_axislv, false), input_binding_gamepad_button(gp_padd)],
-        left:  [input_binding_gamepad_axis(gp_axislh, true),  input_binding_gamepad_button(gp_padl)],
-        right: [input_binding_gamepad_axis(gp_axislh, false), input_binding_gamepad_button(gp_padr)],
+		#region Axis
+		// Movement - Axis
+        axis_move_up:					[input_binding_gamepad_axis(gp_axislv, true),  input_binding_gamepad_button(gp_padu)],
+        axis_move_down:					[input_binding_gamepad_axis(gp_axislv, false), input_binding_gamepad_button(gp_padd)],
+        axis_move_left:					[input_binding_gamepad_axis(gp_axislh, true),  input_binding_gamepad_button(gp_padl)],
+        axis_move_right:				[input_binding_gamepad_axis(gp_axislh, false), input_binding_gamepad_button(gp_padr)],
+		#endregion
         
-        accept:  input_binding_gamepad_button(gp_face1),
-        cancel:  input_binding_gamepad_button(gp_face2),
-        action:  input_binding_gamepad_button(gp_face3),
-        special: input_binding_gamepad_button(gp_face4),
-        
-        aim_up:    input_binding_gamepad_axis(gp_axisrv, true),
-        aim_down:  input_binding_gamepad_axis(gp_axisrv, false),
-        aim_left:  input_binding_gamepad_axis(gp_axisrh, true),
-        aim_right: input_binding_gamepad_axis(gp_axisrh, false),
-        shoot:     [input_binding_gamepad_button(gp_shoulderlb), input_binding_gamepad_button(gp_shoulderrb)],
-        
-        pause: input_binding_gamepad_button(gp_start),
+		#region Actions
+		// Actions
+		action_aim_up:					input_binding_gamepad_axis(gp_axisrv, true),
+        action_aim_down:				input_binding_gamepad_axis(gp_axisrv, false),
+        action_aim_left:				input_binding_gamepad_axis(gp_axisrh, true),
+        action_aim_right:				input_binding_gamepad_axis(gp_axisrh, false),
+        action_shoot:					[input_binding_gamepad_button(gp_shoulderlb), input_binding_gamepad_button(gp_shoulderrb)],
+		
+		// UI
+        action_accept:					[input_binding_gamepad_button(gp_face1), input_binding_gamepad_button(gp_face3)],
+        action_cancel:					input_binding_gamepad_button(gp_face2),
+        action_special:					input_binding_gamepad_button(gp_face4),
+		action_pause:					input_binding_gamepad_button(gp_start),
+		#endregion
     },
     
 };
