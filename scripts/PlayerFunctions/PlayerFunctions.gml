@@ -9,6 +9,8 @@ function PlayerJump()
 	groundJumpBuffer = 0;
 	
 	Gummy(0.8, 1.2);
+	
+	Vibrate(1, 200, 0);
 }
 
 function KeyMovePressed()
