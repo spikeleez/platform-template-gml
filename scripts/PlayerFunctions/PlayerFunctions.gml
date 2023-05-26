@@ -8,9 +8,7 @@ function PlayerJump()
 	
 	groundJumpBuffer = 0;
 	
-	Gummy(0.8, 1.2);
-	
-	Vibrate(1, 200, 0);
+	Gummy(0.8, 1.2);	
 }
 
 function KeyMovePressed()
@@ -27,6 +25,8 @@ function PlayerUpdateMovement()
 	{
 		dir = point_direction(0,0,_keyRight-_keyLeft,0);
 		spd = Approach(spd, spdMax, accel);
+		
+		gamepad_set_color(4, c_red);
 	}
 	else
 	{
