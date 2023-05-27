@@ -4,7 +4,7 @@ function PlayerStateIdle()
 	sprite_index = sPlayer;
 	
 	// State Transition
-	if (KeyMovePressed()) SwitchState(PlayerStateWalk, true);
+	if (KeyMovePressed() or hsp != 0) SwitchState(PlayerStateWalk, true);
 	else hsp = 0;
 	
 	if (input_check_pressed("action_jump") && jumpCount > 0)
@@ -20,6 +20,7 @@ function PlayerStateIdle()
 	
 	// State Debug
 	//show_debug_message("Idle State");
+	stateName = "State: Idle";
 }
 
 function PlayerStateWalk()
@@ -45,6 +46,7 @@ function PlayerStateWalk()
 	
 	// State Debug
 	//show_debug_message("Walk State");
+	stateName = "State: Walk";
 }
 
 function PlayerStateJump() 
@@ -69,6 +71,7 @@ function PlayerStateJump()
 	
 	// State Debug
 	//show_debug_message("Jump State");
+	stateName = "State: Jump";
 }
 
 function PlayerStateDoubleJump() 
@@ -83,6 +86,7 @@ function PlayerStateDoubleJump()
 	
 	// State Debug
 	//show_debug_message("Double Jump State");
+	stateName = "State: Double Jump";
 }
 
 function PlayerStateFall()
@@ -119,4 +123,5 @@ function PlayerStateFall()
 	}
 	// State Debug
 	//show_debug_message("Fall State");
+	stateName = "State: Fall";
 }

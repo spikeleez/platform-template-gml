@@ -35,5 +35,6 @@ jumpHoldFramesMax = 15;
 jumpHoldFrames = 0;
 
 state = undefined;
+stateName = "";
 
 tempGround = false;

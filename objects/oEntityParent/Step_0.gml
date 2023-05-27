@@ -2,7 +2,7 @@ state();
 
 UpdateFace();
 
-tempGround = place_meeting(x, y + 1, oWall);
+tempGround = place_meeting(x, y + 1, oCollision);
 
 vsp = clamp(vsp, -vspMax, vspMax);
 hsp = clamp(hsp, -hspMax, hspMax);

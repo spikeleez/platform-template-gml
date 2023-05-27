@@ -1,7 +1,7 @@
 function MakeCollision()
 {
 	#region Horizontal Collision
-	var _col = instance_place(x + hsp, y, oWall);
+	var _col = instance_place(x + hsp, y, oCollision);
 	
 	if (_col)
 	{
@@ -17,7 +17,7 @@ function MakeCollision()
 	#endregion
 	
 	#region Vertical Collision
-	_col = instance_place(x, y + vsp, oWall);
+	_col = instance_place(x, y + vsp, oCollision);
 	
 	if (_col)
 	{
@@ -36,7 +36,7 @@ function MakeCollision()
 			// Check corner - left
 			for (var i = 0; i < cornerSize; i++)
 			{
-				var _free = !place_meeting(x - i, y + vsp, oWall);
+				var _free = !place_meeting(x - i, y + vsp, oCollision);
 				if (_free)
 				{
 					x -= i;
@@ -48,7 +48,7 @@ function MakeCollision()
 			// Check corner - right
 			for (var i = 0; i < cornerSize; i++)
 			{
-				var _free = !place_meeting(x + i, y + vsp, oWall);
+				var _free = !place_meeting(x + i, y + vsp, oCollision);
 				if (_free)
 				{
 					x += i;
@@ -75,7 +75,7 @@ function UpdateFace()
 
 function OnGround()
 {
-	if (place_meeting(x, y+1, oWall))
+	if (place_meeting(x, y+1, oCollision))
 	{
 		if (!input_check_pressed("action_jump"))
 		{
