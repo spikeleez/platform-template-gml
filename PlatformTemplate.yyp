@@ -175,7 +175,6 @@
     {"id":{"name":"sWall","path":"sprites/sWall/sWall.yy",},},
     {"id":{"name":"input_tick","path":"scripts/input_tick/input_tick.yy",},},
     {"id":{"name":"input_default_gamepad_button","path":"scripts/input_default_gamepad_button/input_default_gamepad_button.yy",},},
-    {"id":{"name":"oGame","path":"objects/oGame/oGame.yy",},},
     {"id":{"name":"__input_steam_type_set","path":"scripts/__input_steam_type_set/__input_steam_type_set.yy",},},
     {"id":{"name":"input_cursor_limit_get","path":"scripts/input_cursor_limit_get/input_cursor_limit_get.yy",},},
     {"id":{"name":"input_cursor_translate","path":"scripts/input_cursor_translate/input_cursor_translate.yy",},},
